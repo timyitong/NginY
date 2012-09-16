@@ -33,7 +33,7 @@ public class Main{
 		task1.run();
 		task2.run();
 		/*Structure Query Tasks*/
-		BatchTask task3=new BatchTask("s_queries.txt",false);
+		BatchTask task3=new BatchTask("s_queries.txt",true,"OR");
 		task3.run();
 	/*Unranked Part:*/
 		ScoreList.ranked=false;
@@ -43,7 +43,7 @@ public class Main{
 		task1.run();
 		task2.run();
 		/*Structure Query Tasks*/
-		task3=new BatchTask("s_queries.txt",false);
+		task3=new BatchTask("s_queries.txt",true,"OR");
 		task3.run();
 	}
 	private static void test(){

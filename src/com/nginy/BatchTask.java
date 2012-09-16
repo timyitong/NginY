@@ -50,7 +50,7 @@ private SimpleDateFormat simple_format=new SimpleDateFormat("HH:mm:ss:SSS");
 		String [] query=null;
 		TrecWriter tw=new TrecWriter(filename.substring(0,filename.indexOf('.')));	//Do not want the '.txt' be included in the result file name
 		while((query=query_queue.pollFirst())!=null){
-			tw.writeScore(new Query(query[1],this.header).getScoreList(),query[0],100);
+			tw.writeScore(new Query(query[1],this.header,auto_add_header).getScoreList(),query[0],100);
 			// -1 means not line limits, and in this HW, we typically use 100
 		}
 		tw.close();

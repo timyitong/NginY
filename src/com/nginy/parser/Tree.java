@@ -25,7 +25,7 @@ public class Tree{
 			query=query.toLowerCase();
 			if (query.indexOf(".")==-1)
 				query=query+".body";
-			//score_list=new ScoreList(query);
+			
 			keyword=query;
 			tree_type="COM";
 		}

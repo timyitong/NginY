@@ -1,4 +1,4 @@
-1: #NEAR/3(obama family tree)
+1:#AND(obama #NEAR/2(family tree))
 2:#OR(#NEAR/1(french.title lick.title) #AND(resort and casino))
 6:kcs.title
 7:#AND(air.title #OR(travel information))
