@@ -14,7 +14,7 @@ public class TrecWriter{
 	}
 	TrecWriter(String file_prefix){
 		Date date=new Date();
-		SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
+		SimpleDateFormat f=new SimpleDateFormat("MM-dd_HH-mm-ss_SSS");
 		try{
 		bw=new BufferedWriter(new FileWriter(new File("data/result/"+file_prefix+"_"+f.format(date)+".txt")));
 		}catch(IOException e){e.printStackTrace();}

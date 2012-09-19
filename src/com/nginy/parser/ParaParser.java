@@ -13,28 +13,31 @@ public class ParaParser{
 		int rear=s.length()-1;
 
 		while(j<s.length()){
-			if (s.charAt(j)=='(')
-				layers++;
-			if (s.charAt(j)==')')
-				layers--;
-
-			if (s.charAt(j)!=' '){
-				if (status==0){
-					status=1;
-					head=j;
-				}
-	
-			}else{
-				if (status==1 && layers==1){
-					status=0;
+			if (status==1){
+				if (s.charAt(j)==')'){
 					push(s.substring(head,j));
+					push(")");
+					status=0;
+				}
+				else if (s.charAt(j)=='('){ 
+					push(s.substring(head,j));
+					status=0;
+				}
+				else if (s.charAt(j)==' '){
+					push(s.substring(head,j));
+					status=0;
 				}
 			}
-
+			else {
+				if (s.charAt(j)==')')
+					push(")");
+				else if (s.charAt(j)!=' ' && s.charAt(j)!='('){
+					head=j;
+					status=1;
+				}
+			}
 			j++;
 		}
-		if (s.charAt(j-1)!=' ')
-			push(s.substring(head,j));
 	}
 	private void push(String s){
 		if (tokens==null)

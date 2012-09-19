@@ -9,9 +9,9 @@ public class StopList{
 		try{
 		BufferedReader br=new BufferedReader(new FileReader(new File("data/"+filename)));
 		String s=null;
-		hashmap=new HashMap <String,byte[]>();
+		hashmap=new HashMap <String,byte[]>(num);
 		while ( (s=br.readLine()) != null){
-			hashmap.put(s,new byte[1]);
+			hashmap.put(s,new byte[1]);	//Only use 1 byte to indicate whether the stop word exists, make the space cost as small as possible
 		}
 		}catch(Exception e){e.printStackTrace();}
 	}

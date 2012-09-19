@@ -17,11 +17,11 @@ public class Main{
 		SimpleDateFormat format=new SimpleDateFormat("HH:mm:ss:SSS");
 		System.out.println("===Engine Boot ===    TIME "+format.format(new Date()));
 		/*Load Stopword List into Memory*/
-		StopList.readIntoMemory(1000,"stoplist.txt");	
+		StopList.readIntoMemory(500,"stoplist.txt");	
 		/*Load InvertedList into Memory*/
-		InvertedList.readIntoMemory(1000,"inv_local");
-		InvertedList.readIntoMemory(1000,"body_local");
-		InvertedList.readIntoMemory(1000,"title_local");
+		InvertedList.readIntoMemory(400,"inv_local");
+		InvertedList.readIntoMemory(400,"body_local");
+		InvertedList.readIntoMemory(400,"title_local");
 		ScoreList.ranked=true;
 		System.out.println("===Engine Ready===   TIME "+format.format(new Date()));
 	}
@@ -56,7 +56,9 @@ public class Main{
 			//new InvWriter("data/inv_web");
 		/*--------------------------------------------------------*/
 
-		
+		/*This is used to rewrite Trec_file into sample file*/
+			//new TrecRewriter ("data/result/sample_result/","data/result/sample_result/simple/");
+
 		}catch(Exception e){e.printStackTrace();};
 	}
 }

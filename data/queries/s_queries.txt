@@ -1,30 +1,30 @@
-1:#AND(obama #NEAR/2(family tree))
-2:#OR(#NEAR/1(french.title lick.title) #AND(resort and casino))
-6:kcs.title
+1:#AND(obama.body #NEAR/2(family.body tree.body))
+2:#AND(#NEAR/1(french.title lick.title) #OR(resort and casino))
+6:kcs.body
 7:#AND(air.title #OR(travel information))
 15:#AND(espn.title sports)
 16:#NEAR/3(arizona game and fish)
 17:#NEAR/2(poker tournaments)
-18:#AND(wedding #OR(budget calculator.title))
+18:#OR(wedding.title budget.title calculator.title)
 21:volvo.body
 25:euclid.body
 26:#AND(lower #NEAR/2(heart rate))
-29:#AND(#NEAR/1(ps 2) games)
-31:atari.body
-32:#OR(website.title #AND(design.title hosting))
+29:#OR(#AND(ps.body 2.body) games.body)
+31:atari.title
+32:#AND(#NEAR/1(website.title design.title) hosting.title)
 36:gps.body
-37:#NEAR/1(pampered.title chef.title)
+37:#OR(pampered.title chef.title)
 38:#AND(dogs.body for adoption.body)
-39:#AND(disneyland.body hotel.title)
-41:#OR(#NEAR/2(orange.title county.title) #AND(convention center))
-42:the #NEAR/1(music man)
+39:#AND(disneyland.body hotel.body)
+41:#AND(#NEAR/2(orange.title county.title) #NEAR/2(convention center))
+42:#OR(the #NEAR/1(music man))
 46:#AND(#NEAR/1(alexian brothers) hospital.body)
-54:president.title of #NEAR/3(the united states)
-56:#OR(#AND(uss.title yorktown) #NEAR/2(charleston sc))
-59:how to #NEAR/3(build a fence)
-62:texas #AND(border patrol)
+54:#NEAR/4(president of the united states)
+56:#AND(#OR(uss.title yorktown.title) #OR(charleston.body sc.body))
+59:#AND(how to #OR(build.title a fence.title))
+62:#AND(texas #NEAR/1(border patrol))
 73:#NEAR/1(neil.title young.title)
-80:keyboard.body reviews.body
+80:#OR(keyboard.title reviews.body)
 82:joints.body
-91:er.title #NEAR/2(tv show)
-97:#NEAR/1(south africa)
+91:#AND(er #OR(tv show))
+97:#NEAR/1(south.title africa.title)

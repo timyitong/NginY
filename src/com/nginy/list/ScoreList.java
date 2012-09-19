@@ -1,13 +1,21 @@
+/**	Notice:
+	The ScoreList is stored as an int [],
+		in format as follows:
+			int[0]={doc_id,term_freq,doc_length,term_loc1,term_loc2,.....}
+			int[1]={doc_id,term_freq,doc_length,term_loc1,term_loc2,.....}
+					...
+			int[n]={doc_id,term_freq,doc_length,term_loc1,term_loc2,.....}
+		There is no length attributes for it before int [] can simply tell itself.
+*/
 package com.nginy.list;
 import java.util.HashMap;
 import java.util.Stack;
 public class ScoreList{
 	public static boolean ranked=false;
 	public int [] list;
-	private static HashMap <String,ScoreList> hashmap=new HashMap<String,ScoreList>();
+	private static HashMap <String,ScoreList> hashmap;
 	public ScoreList(String keyword){
 		int [] inv_list=InvertedList.getInvList(keyword);
-
 		initScore(inv_list);
 	}
 	public ScoreList(int[] score_list){
@@ -32,8 +40,6 @@ public class ScoreList{
 				this.list[pointer+1]=1;   // here is the unranked score always 1
 			pointer+=2;
 			tf=inv_list[i+1];			//the pace of the i, first path should be the first record
-		//		System.out.println(inv_list.length+"pointer:"+pointer);
-		//System.out.println("tf:"+tf+"i:"+i);
 		}
 	}
 	
@@ -153,12 +159,9 @@ public class ScoreList{
 		}
 		return s;
 	}
-	public void sort(){
-
-		sort(0,list.length-2);
-		/*for (int i=0;i<list.length;i+=2){
-			System.out.println(list[i]+"::::"+list[i+1]);
-		}*/
+	public void sort(){	//This is the entrance of sorting the Score List Result
+		if (list.length!=0)
+			sort(0,list.length-2);
 	}
 	private void sort(int left, int right){
 		Stack <int []> op_stack=new Stack <int []>();
@@ -168,7 +171,6 @@ public class ScoreList{
 		arr[0]=left;
 		arr[1]=right;
 		op_stack.push(arr);
-
 		while(!op_stack.empty()){
 			op=op_stack.pop();
 			left=op[0];

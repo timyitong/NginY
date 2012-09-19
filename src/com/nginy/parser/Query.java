@@ -45,7 +45,7 @@ public class Query{
 
 
 	public ScoreList getScoreList(){
-		ScoreList sl=new Tree(query).getScoreList(); 
+		ScoreList sl=new Tree(query,"TREE").getScoreList(); 
 		/*We only do the sort operation, when all the sub_queries have been finished, 
 			 only 1 sort per query could save time.*/
 		if (ScoreList.ranked)

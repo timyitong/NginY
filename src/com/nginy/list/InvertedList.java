@@ -4,9 +4,9 @@
 			int[0]=term_frequence;
 			int[1]=term_total_count;
 			int[2]=doc_frequence;
-			int[3]={doc_id,term_freq,doc_length,term_loc1,term_loc2,.....}
+			int[3..n]={doc_id,term_freq,doc_length,term_loc1,term_loc2,.....}
 					...
-			int[n]={doc_id,term_freq,doc_length,term_loc1,term_loc2,.....}
+			int[n..n]={doc_id,term_freq,doc_length,term_loc1,term_loc2,.....}
 	This class is its hashmap and operater class.
 */
 package com.nginy.list;
@@ -28,8 +28,7 @@ public class InvertedList{
 	int term_freq;   //collection_term_frequence
 	String term;
 	String stemmed_term;
-	private static HashMap <String,int[]> hashmap=new HashMap <String,int[]> ();
-	
+	private static HashMap <String,int[]> hashmap=null;
 	public int [] list=null;
 	private static int [] readFile(File file){
 		int freq=0;
@@ -105,6 +104,9 @@ public class InvertedList{
 
 	}
 	public static void readIntoMemory(int num,String folder){
+		if (hashmap==null)
+			hashmap=new HashMap <String,int[]> (num); 
+		// declare the possible space first could reduce the rehash time a little bit
 		File file=new File("data/"+folder+"/");
 		File [] files=file.listFiles();
 
@@ -222,7 +224,7 @@ public class InvertedList{
 				words[i]=t.keyword;
 				i++;
 			}
-				//words[i++]=t.keyword;			
+						
 		}
 		
 		//read all invertedlists:

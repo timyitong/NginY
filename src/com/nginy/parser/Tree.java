@@ -11,27 +11,54 @@ public class Tree{
 	public String keyword=null;
     public String tree_type;
     public boolean splitted=false;
-	public Tree(String query){
-		if (query.charAt(0)=='#'){
-			children=new LinkedList <Tree>();
-			int i=query.indexOf('(');
-			tree_type=query.substring(1,i);
-			ParaParser parser=new ParaParser(query.substring(i+1,query.length()-1));
-			while(parser.hasMoreTokens()){
-				children.add(new Tree(parser.nextToken()));
-			}
-
+	public Tree(String query,String type){  // 2 types: node: refers to a node and tree refers to an entire tree
+		if (!type.equals("TREE")){
+			initNode(query,type);
 		}else{
+			Stack <Tree> parent_stack=new Stack <Tree>();
+			ParaParser p=new ParaParser(query);
+			String token=p.nextToken();
+			String op_name=null;
+			char check='0';
+			if (!p.hasMoreTokens()){ // if there is # in query, then at least has two tokens, #XXX and )
+				initNode(token,"COM");
+			}else{
+				op_name=token.substring(1,token.length());
+				initNode(op_name,op_name);
+				Tree parent=this;
+				while (p.hasMoreTokens()){
+					token=p.nextToken();
+					check=token.charAt(0);
+					if (check=='#'){
+						op_name=token.substring(1,token.length());
+						Tree new_parent=new Tree(op_name,op_name);
+						parent.addChild(new_parent);
+						parent_stack.push(parent);
+						parent=new_parent;
+					}else if (check==')'){
+						if (!parent_stack.empty())
+							parent=parent_stack.pop();
+					}else{
+						Tree new_leaf=new Tree(token,"COM");
+						parent.addChild(new_leaf);
+					}
+				}
+			}
+		}
+	}
+	private void initNode(String query,String type){ // this is the init method for a leaf end node
+		if (type.equals("COM")){
 			query=query.toLowerCase();
 			if (query.indexOf(".")==-1)
 				query=query+".body";
-			
-			keyword=query;
-			tree_type="COM";
 		}
+		keyword=query;
+		tree_type=type;
 	}
-	public void AND(){
-		
+	public void addChild(Tree t){
+		if (children==null)
+			children=new LinkedList<Tree> ();
+		children.add(t);	
 	}
 	public ScoreList getScoreList_norecur(){
 		Stack <Tree> op_stack=new Stack <Tree>();
@@ -83,8 +110,10 @@ public class Tree{
 		return result;
 	}
 	public ScoreList getScoreList(){
-		if (tree_type.equals("COM"))
-			return new ScoreList(keyword);
+		if (tree_type.equals("COM")){
+			ScoreList l=new ScoreList(keyword);
+			return l;
+		}
 		if (score_list==null){
 			ScoreList [] arr=new ScoreList[children.size()];
 			Tree t=null;
