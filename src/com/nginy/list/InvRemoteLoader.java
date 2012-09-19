@@ -41,6 +41,7 @@ public class InvRemoteLoader{
 		BufferedWriter out=new BufferedWriter(new FileWriter(new File("data/inv_web/"+name)));
 		String line;
 		int begin=0;
+		//Find the body part of the web Inverted List and read it line by line
 		while ((line = in.readLine()) != null) {
 			if (begin==0){
 				if (line.matches("^<body>.*")){

@@ -11,7 +11,8 @@ public class ParaParser{
 		int status=0;
 		int layers=1;
 		int rear=s.length()-1;
-
+/*split the query string into useful tokens, we consider space, '(' as splitter, 
+	but consider ')' also a token to send a message to the tree that one sub-tree is finished.*/
 		while(j<s.length()){
 			if (status==1){
 				if (s.charAt(j)==')'){

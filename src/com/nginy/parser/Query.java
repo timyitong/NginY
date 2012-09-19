@@ -3,6 +3,14 @@ import com.nginy.list.ScoreList;
 public class Query{
 	private String query;
 	private char [] check_list={'-','\\','_','/'};
+	/*If not specially decided, default to wrap an OR to the query String, 
+		here we do not check the query String. The reason is the check process is not o(1) but o(n) complexity in time,
+		which may not worth it here, since add one more Layer for 1 parameter nodes will not increse real computation.
+
+		The situation like the following, make the check an o(n) process:
+		query: #AND(a b) #OR(c d)
+
+	*/
 	public Query(String original){
 		query=original;
 		query="#OR("+query+")";

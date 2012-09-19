@@ -9,8 +9,11 @@ public class Tree{
 	public LinkedList <Tree> children=null;
 	public ScoreList score_list=null;
 	public String keyword=null;
-    public String tree_type;
-    public boolean splitted=false;
+    public String tree_type;		/* The values have the following meanings:
+    									"TREE"=>entire query tree
+    									"COM" => end leaf	
+    								{"AND"|"OR"|"NEAR/x"}	=>operator tyoe		*/
+    public boolean splitted=false;	//indicated whether this Tree's ScoreList has begun calculation.
 	public Tree(String query,String type){  // 2 types: node: refers to a node and tree refers to an entire tree
 		if (!type.equals("TREE")){
 			initNode(query,type);
@@ -31,10 +34,10 @@ public class Tree{
 					check=token.charAt(0);
 					if (check=='#'){
 						op_name=token.substring(1,token.length());
-						Tree new_parent=new Tree(op_name,op_name);
-						parent.addChild(new_parent);
-						parent_stack.push(parent);
-						parent=new_parent;
+						Tree new_parent=new Tree(op_name,op_name);//Generate new tree
+						parent.addChild(new_parent);//add this tree to parent
+						parent_stack.push(parent);//save current parent in stack
+						parent=new_parent;//the new tree becomes the new parent
 					}else if (check==')'){
 						if (!parent_stack.empty())
 							parent=parent_stack.pop();
@@ -60,6 +63,7 @@ public class Tree{
 			children=new LinkedList<Tree> ();
 		children.add(t);	
 	}
+	// A non-recursive version of getScoreList(), but the performance seems to be no difference
 	public ScoreList getScoreList_norecur(){
 		Stack <Tree> op_stack=new Stack <Tree>();
 		ScoreList result=null;
@@ -78,7 +82,7 @@ public class Tree{
 			  			t.score_list=t.children.pollFirst().score_list;
 			  		}else{
 			  			if (t.tree_type.matches("^NEAR.*")){
-							int width=Integer.parseInt(tree_type.substring(5,tree_type.length()));
+							int width=Integer.parseInt(t.tree_type.substring(5,t.tree_type.length()));
 							t.score_list=InvertedList.NEAR(children,width);
 			  			}else{
 			  				ScoreList [] sl=new ScoreList[t.children.size()];
@@ -96,12 +100,13 @@ public class Tree{
 			  		} 
 			  	}else{//if not splitted yet, we need to split it
 			  		Iterator <Tree> it=t.children.descendingIterator();
-			  		while(it.hasNext()){
-			  			t=it.next();
-			  			op_stack.push(t);
-			  		}
 			  		t.splitted=true;
 			  		op_stack.push(t);
+			  		while(it.hasNext()){
+					//push all its children into stack
+			  			tmp=it.next();
+			  			op_stack.push(tmp);
+			  		}
 			  	}
 			  }
 			}

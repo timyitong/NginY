@@ -13,6 +13,7 @@ import java.util.Stack;
 public class ScoreList{
 	public static boolean ranked=false;
 	public int [] list;
+	//This hashmap currently is not used
 	private static HashMap <String,ScoreList> hashmap;
 	public ScoreList(String keyword){
 		int [] inv_list=InvertedList.getInvList(keyword);
@@ -21,6 +22,7 @@ public class ScoreList{
 	public ScoreList(int[] score_list){
 		this.list=score_list;
 	}
+	//Instantiate the ScoreList from Score List int array or Inverted List int array
 	public ScoreList(int[] list,String type){
 		if (type.equals("inv"))
 			initScore(list);
@@ -74,6 +76,9 @@ public class ScoreList{
 		return new ScoreList(new_list);
 	}
 	public static ScoreList AND(ScoreList[] arr){
+		if (arr==null){
+			System.out.println("hihihih");
+		}
 		if (arr.length==1){
 			return AND(arr[0]);
 		}
@@ -92,6 +97,7 @@ public class ScoreList{
 	public static ScoreList OR(ScoreList s){
 		return s;
 	}
+	//Combine two ScoreList using OR
 	public static ScoreList OR(ScoreList s1, ScoreList s2){
 		int [] result=new int [s1.list.length+s2.list.length];
 		int i=0,j=0,writer=0;
@@ -138,6 +144,7 @@ public class ScoreList{
 			new_result[i]=result[i];
 		return new ScoreList(new_result);
 	}
+	//Combine arrays of ScoreList
 	public static ScoreList OR(ScoreList [] arr){
 		if (arr.length==1){
 			return OR(arr[0]);
@@ -163,6 +170,7 @@ public class ScoreList{
 		if (list.length!=0)
 			sort(0,list.length-2);
 	}
+	//Quick sort Implementation:
 	private void sort(int left, int right){
 		Stack <int []> op_stack=new Stack <int []>();
 		int [] op=new int[2];
@@ -175,7 +183,7 @@ public class ScoreList{
 			op=op_stack.pop();
 			left=op[0];
 			right=op[1];
-			checkIndex=(left/2+right/2)/2*2;
+			checkIndex=(left/2+right/2)/2*2;	/*Use the middle value to do partition*/
 			checkIndex=partition(left,right,checkIndex);
 			
 			if (checkIndex-2>left){
@@ -192,7 +200,7 @@ public class ScoreList{
 			}
 		}
 	}
-
+	//partition method implmentation for quick sort
 	private int partition(int left, int right, int checkIndex){
 		int checkValue=this.list[checkIndex+1];
 		swap(right,checkIndex);
@@ -214,7 +222,7 @@ public class ScoreList{
 		swap(index,right);
 		return index;
 	}
-	private void swap(int front, int rear){
+	private void swap(int front, int rear){   //Swap two pair of DOC_ID SCORE
 		int tmp_doc=0;
 		int tmp_score=0;
 		tmp_doc=this.list[front];

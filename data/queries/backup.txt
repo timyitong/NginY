@@ -1,0 +1,30 @@
+1:#AND(obama #NEAR/2(family tree))
+2:#AND(#NEAR/1(french.title lick.title) #OR(resort and casino))
+6:kcs.body
+7:#AND(#NEAR/1(air travel) information)
+15:#AND(espn.title sports)
+16:#NEAR/3(arizona game and fish)
+17:#NEAR/2(poker tournaments)
+18:wedding.title budget.title calculator.title
+21:volvo.body
+25:euclid.body
+26:#AND(lower #NEAR/2(heart rate))
+29:#AND(ps.title 2.title games.body)
+31:atari.body
+32:#AND(#NEAR/1(website.title design.title) hosting.title)
+36:gps.body
+37:#NEAR/2(pampered.title chef.title)
+38:#AND(dogs.body for adoption.body)
+39:#AND(disneyland.body hotel.body)
+41:#AND(#NEAR/2(orange.title county.title) #NEAR/2(convention center))
+42:the #NEAR/1(music man)
+46:#AND(#NEAR/1(alexian brothers) hospital.body)
+54:#NEAR/4(president of the united states)
+56:#AND(#NEAR/1(uss yorktown) charleston sc)
+59:#AND(how to build a fence.title)
+62:#AND(texas #NEAR/1(border patrol))
+73:#NEAR/1(neil.title young.title)
+80:#AND(keyboard.title reviews.body)
+82:joints.body
+91:#AND(er #OR(tv show))
+97:#NEAR/1(south.title africa.title)

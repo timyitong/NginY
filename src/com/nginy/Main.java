@@ -28,6 +28,8 @@ public class Main{
 	private static void run(){
 	/*Ranked Part:*/	
 		/*Unstructured Query Tasks*/
+		/*True/false are deciding whether to turn on the auto_add_header function 
+			and to specify add OR/AND*/
 		BatchTask task1=new BatchTask("uns_OR_queries.txt",true,"OR");
 		BatchTask task2=new BatchTask("uns_AND_queries.txt",true,"AND");
 		task1.run();
