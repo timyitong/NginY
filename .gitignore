@@ -1,4 +1,5 @@
 .DS_Store
+data/*
 data/result/*.txt
 data/inv_local/*.inv
 *.swp
