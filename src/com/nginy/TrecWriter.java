@@ -38,7 +38,7 @@ public class TrecWriter{
 		while(i<s.list.length && i<limit_lines){
 			double score=s.list[i+1];
 			DecimalFormat f=new DecimalFormat("#.0");
-			String line=query_id+" Q0 "+s.list[i]+" "+rank+" "+f.format(score)+" "+"run-1\n";
+			String line=query_id+" Q0 "+(int)s.list[i]+" "+rank+" "+score+" "+"run-1\n";
 			try{
 			bw.write(line);
 			}catch(IOException e){e.printStackTrace();}

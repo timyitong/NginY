@@ -2,6 +2,7 @@ package com.nginy;
 import com.nginy.TrecWriter;
 import com.nginy.parser.Tree;
 import com.nginy.parser.Query;
+import com.nginy.list.ScoreList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
@@ -48,11 +49,16 @@ private SimpleDateFormat simple_format=new SimpleDateFormat("HH:mm:ss:SSS");
 		System.out.println("Begin:" +simple_format.format(new Date()));
 		String [] query=null;
 		TrecWriter tw=new TrecWriter(filename.substring(0,filename.indexOf('.')));	//Do not want the '.txt' be included in the result file name
+		ResWriter rw=new ResWriter(filename.substring(0,filename.indexOf('.')));
 		while((query=query_queue.pollFirst())!=null){
-			tw.writeScore(new Query(query[1],this.header,auto_add_header).getScoreList(),query[0],100);
+			Query q=new Query(query[1],this.header,auto_add_header);
+			ScoreList sl=q.getScoreList();
+			tw.writeScore(sl,query[0],100);
 			// -1 means not line limits, and according to the homwwork requirements, we typically use 100
+			rw.writeScore(sl,query[0],50);
 		}
 		tw.close();
+		rw.close();
 		System.out.println("End:" +simple_format.format(new Date()));
 	}
 }

@@ -1,2 +1,2 @@
-1:#OR(obama #NEAR/2(family tree))
-15:#OR(espn sports)
+1:obama family tree
+15:espn sports

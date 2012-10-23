@@ -14,6 +14,7 @@ public class StopList{
 			hashmap.put(s,new byte[1]);	
 			//Only use 1 byte to indicate whether the stop word exists, make the space cost as small as possible
 		}
+		br.close();
 		}catch(Exception e){e.printStackTrace();}
 	}
 	public static boolean hasStopWord(String w){
