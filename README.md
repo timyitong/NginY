@@ -7,15 +7,22 @@ Git: https://github.com/timyitong/NginY
 How to Run:
 	This application uses Apache-Ant to build and run, see build.xml of the specific configuration
 	Just swith to the root directory of NginY, run the following command:
-		$NginY: ant
-	OR 
-		$NginY: ant run
+
+	$NginY: ant
 	
-	If you want to execute it in direct command line, it should be (notice you need extra memory larger than the default JVM settings):
+	OR 
+	
+	$NginY: ant run
+	
+	If you want to execute it in direct command line, it should be 
+	
+	(notice you need extra memory larger than the default JVM settings):
 
 	$NginY:	java -jar -Xms256M -Xmx512M build/jar/NginY.jar
 
-	If you occur to a OutOfMemory error, please expand the memory to, -Xms1G -Xmx2G, which may //be most safely. (Directly replace this two sections in command line or build.xml)
+	If you occur to a OutOfMemory error, please expand the memory to -Xms1G -Xmx2G
+	
+	(Directly replace this two sections in command line or build.xml)
 
 
 The directory details:
