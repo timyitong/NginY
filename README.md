@@ -26,15 +26,16 @@ How to Run:
 
 
 The directory details:
-	. 				Root
+
+	.				Root
 	
-	./build.xml 			Apache-ant build file
+	./build.xml			Apache-ant build file
 	
-	./build/classes  		classes
+	./build/classes			classes
 	
 	./build/jar			jar file
 	
-	./src/com/nginy 		Source code
+	./src/com/nginy			Source code
 
 	./data				Data Folder
 
@@ -50,6 +51,6 @@ The directory details:
     	
 	./sample_result_file		Sample Results File Folder*NOTICE*
    	
-   	./data/result 			Query Results Folder *The results will defaultly be put here*
+   	./data/result			Query Results Folder *The results will defaultly be put here*
     	
-	./data/stoplists 		Stop List
+	./data/stoplists		Stop List
