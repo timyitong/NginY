@@ -27,21 +27,21 @@ How to Run:
 
 The directory details:
 
-	.				Root
+	.					Root
 	
-	./build.xml			Apache-ant build file
+	./build.xml				Apache-ant build file
 	
-	./build/classes			classes
+	./build/classes				classes
 	
-	./build/jar			jar file
+	./build/jar				jar file
 	
-	./src/com/nginy			Source code
+	./src/com/nginy				Source code
 
-	./data				Data Folder
+	./data					Data Folder
 
-	./data/queries			Query Folder
+	./data/queries				Query Folder
     	
-	./data/inv_local		Inverted Lists
+	./data/inv_local			Inverted Lists
 		    		
 		body_local
     	  	
@@ -49,8 +49,8 @@ The directory details:
     	   	
 		inv_web
     	
-	./sample_result_file		Sample Results File Folder*NOTICE*
+	./sample_result_file			Sample Results File Folder*NOTICE*
    	
-   	./data/result			Query Results Folder *The results will defaultly be put here*
+   	./data/result				Query Results Folder *The results will defaultly be put here*
     	
-	./data/stoplists		Stop List
+	./data/stoplists			Stop List
