@@ -1,6 +1,9 @@
 Application: 	NginY (Search Engine of Yi)
-Author: 		Yitong Zhou
-Git: 			https://github.com/timyitong/NginY
+
+Author: Yitong Zhou
+
+Git: https://github.com/timyitong/NginY
+
 How to Run:
 	This application uses Apache-Ant to build and run, see build.xml of the specific configuration
 	Just swith to the root directory of NginY, run the following command:
@@ -13,6 +16,7 @@ How to Run:
 	$NginY:	java -jar -Xms256M -Xmx512M build/jar/NginY.jar
 
 	If you occur to a OutOfMemory error, please expand the memory to, -Xms1G -Xmx2G, which may //be most safely. (Directly replace this two sections in command line or build.xml)
+
 
 The directory details:
 	. 						Root
