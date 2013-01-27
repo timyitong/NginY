@@ -19,20 +19,30 @@ How to Run:
 
 
 The directory details:
-	. 						Root
+	. 				Root
+	
 	./build.xml 			Apache-ant build file
+	
 	./build/classes  		classes
-	./build/jar				jar file
+	
+	./build/jar			jar file
+	
 	./src/com/nginy 		Source code
-				...
-				.../parser	
-				.../list
-    ./data					Data Folder
-    ./data/queries			Query Folder
-    ./data/inv_local		Inverted Lists
-    	   body_local
-    	   title_local
-    	   inv_web
-    ./sample_result_file	Sample Results File Folder 		*NOTICE*
-    ./data/result 			Query Results Folder 			*The results will defaultly be put here*
-    ./data/stoplists 		Stop List
+
+	./data					Data Folder
+
+	./data/queries			Query Folder
+    	
+    	./data/inv_local		Inverted Lists
+    		
+    		body_local
+    	  	
+    	  	title_local
+    	   	
+    	   	inv_web
+    	
+    	./sample_result_file		Sample Results File Folder*NOTICE*
+   	
+   	./data/result 			Query Results Folder *The results will defaultly be put here*
+    	
+    	./data/stoplists 		Stop List
