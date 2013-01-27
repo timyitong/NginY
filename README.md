@@ -36,20 +36,20 @@ The directory details:
 	
 	./src/com/nginy 		Source code
 
-	./data					Data Folder
+	./data				Data Folder
 
 	./data/queries			Query Folder
     	
-    	./data/inv_local		Inverted Lists
-    		
-    		body_local
+	./data/inv_local		Inverted Lists
+		    		
+		body_local
     	  	
-    	  	title_local
+		title_local
     	   	
-    	   	inv_web
+		inv_web
     	
-    	./sample_result_file		Sample Results File Folder*NOTICE*
+	./sample_result_file		Sample Results File Folder*NOTICE*
    	
    	./data/result 			Query Results Folder *The results will defaultly be put here*
     	
-    	./data/stoplists 		Stop List
+	./data/stoplists 		Stop List
